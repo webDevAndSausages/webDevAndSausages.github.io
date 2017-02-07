@@ -109,6 +109,10 @@ body {
     width: 48px;
     height: 48px;
   }
+
+  .sign-up-link {
+    margin-top: 24px;
+  }
 }
 
 
