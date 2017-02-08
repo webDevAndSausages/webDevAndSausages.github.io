@@ -53,6 +53,29 @@ body {
   font-size: 34px;
   margin-top: 32px;
   display: inline-block;
+  background-color: #0b7ebc;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.next-meetup .date {
+  font-weight: bold;
+  padding: 2px 15px;
+  letter-spacing: 5px;
+  margin-bottom: 13px;
+  display: inline-block;
+  border-radius: 2px;
+  border-bottom: solid 3px;
+}
+
+.futurice-logo {
+  width: 140px;
+  height: auto;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  top: 10px;
 }
 
 .sign-up-link,
@@ -112,6 +135,12 @@ body {
 
   .sign-up-link {
     margin-top: 24px;
+  }
+
+  .futurice-logo {
+    top: 14px;
+    transform: scale(0.8);
+    left: -14px;
   }
 }
 
