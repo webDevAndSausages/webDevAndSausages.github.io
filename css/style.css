@@ -9,10 +9,10 @@ body {
 }
 
 .top-logo {
-    top: -42px;
+    top: -115px;
     position: absolute;
     left: 50%;
-    margin-left: -236.5px;
+    margin-left: -400px;
 }
 
 .top-bg {
@@ -38,6 +38,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  padding: 20px;
   padding-bottom: 62px;
   -webkit-box-shadow: 0px -100px 100px 0px rgba(50, 50, 50, .5);
   -moz-box-shadow:    0px -100px 100px 0px rgba(50, 50, 50, .5);
@@ -52,6 +53,29 @@ body {
   font-size: 34px;
   margin-top: 32px;
   display: inline-block;
+  background-color: #0b7ebc;
+  padding: 20px 20%;
+  border-radius: 2px;
+}
+
+.next-meetup .date {
+  font-weight: bold;
+  padding: 2px 15px;
+  letter-spacing: 5px;
+  margin-bottom: 13px;
+  display: inline-block;
+  border-radius: 2px;
+  border-bottom: solid 3px;
+}
+
+.futurice-logo {
+  width: 140px;
+  height: auto;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  top: 10px;
 }
 
 .sign-up-link,
@@ -78,4 +102,46 @@ body {
   width: 64px;
   height: 64px;
 }
+
+@media screen and (max-width: 800px) {
+  .bottom-bg {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top-logo {
+    transform: scale(0.8);
+    top: -155px;
+  }
+
+  body {
+    line-height: 36px;
+  }
+  .bottom-bg {
+    font-size: 22px;
+    top: 380px;
+    padding-top: 90px;
+  }
+
+  .next-meetup {
+    font-size: 24px;
+  }
+
+  .social-media-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sign-up-link {
+    margin-top: 24px;
+  }
+
+  .futurice-logo {
+    top: 14px;
+    transform: scale(0.8);
+    left: -14px;
+  }
+}
+
 
