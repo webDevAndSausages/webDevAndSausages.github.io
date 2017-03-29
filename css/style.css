@@ -103,6 +103,16 @@ body {
   height: 64px;
 }
 
+.vincit-logo {
+  width: 140px;
+  height: auto;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  top: 10px;
+}
+
 @media screen and (max-width: 800px) {
   .bottom-bg {
     font-size: 32px;
@@ -135,6 +145,12 @@ body {
 
   .sign-up-link {
     margin-top: 24px;
+  }
+
+  .vincit-logo {
+    top: 14px;
+    transform: scale(0.8);
+    left: -14px;
   }
 
   .futurice-logo {
