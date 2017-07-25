@@ -78,6 +78,16 @@ body {
   top: 10px;
 }
 
+.wapice-logo {
+  width: 222px;
+  height: auto;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  top: 25px;
+}
+
 .sign-up-link,
 .sign-up-link:visited
 {
