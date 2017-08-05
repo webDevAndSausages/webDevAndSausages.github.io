@@ -1,4 +1,5 @@
-export const firstUpper = string => string.charAt(0).toUpperCase() + string.slice(1)
+export const firstUpper = string =>
+  string.charAt(0).toUpperCase() + string.slice(1)
 const getOr = (pathString, alternative, obj) => {
   const paths = pathString.split('.')
   let val = obj

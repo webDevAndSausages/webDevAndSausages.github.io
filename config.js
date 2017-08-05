@@ -5,4 +5,5 @@ export const links = {
   youtube: 'https://www.youtube.com/user/Vancampit',
 }
 
-export const addMemberUrl = 'https://us-central1-webdevandsausages.cloudfunctions.net/addMember'
+export const addMemberUrl =
+  'https://us-central1-webdevandsausages.cloudfunctions.net/addMember'
