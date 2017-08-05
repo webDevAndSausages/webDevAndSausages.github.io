@@ -1,20 +1,17 @@
 import {h, app} from 'hyperapp'
 import axios from 'axios'
 import {links, addMemberUrl} from './config'
-import {
-  selectValue,
-  isEmail,
-  firstUpper
-} from './helpers'
+import {selectValue, isEmail, firstUpper} from './helpers'
 
+const title = () =>
+  <h1>
+    Meetup for <u>web developers</u>
+    <br />and sausage lovers
+  </h1>
 
-const title = () => (
-  <h1>Meetup for <u>web developers</u><br />and sausage lovers</h1>
-);
-
-const socialMediaLinks = () => (
+const socialMediaLinks = () =>
   <div className="social-media">
-    {Object.keys(links).map(key => (
+    {Object.keys(links).map(key =>
       <a href={links[key]} target="_blank">
         <img
           className={`social-media-icon ${key}`}
@@ -22,11 +19,10 @@ const socialMediaLinks = () => (
           alt={firstUpper(key)}
         />
       </a>
-    ))}
+    )}
   </div>
-);
 
-const logo = () => (
+const logo = () =>
   <div className="top-logo">
     <img
       className="animated bounceInDown"
@@ -34,7 +30,6 @@ const logo = () => (
       alt="Web Dev &amp; Sausages"
     />
   </div>
-)
 
 app({
   state: {
@@ -42,68 +37,88 @@ app({
     isValid: false,
     showWarning: false,
     showSuccess: false,
-    showError: false
+    showError: false,
+    showSpinner: false,
   },
-  view: (state, {setValue, add}) => (
+  view: (state, {setValue, add}) =>
     <div>
       <div className="top-bg" />
       <div className="bottom-bg">
         {title()}
         <span className="next-meetup">
-          <span className="date">17.8.2017</span><br />
+          <span className="date">17.8.2017</span>
+          <br />
           Web Dev & Sausages vol.4
           <br />
-          @ <a href="http://wapice.com/" target="_blank">
+          @{' '}
+          <a href="http://wapice.com/" target="_blank">
             <img
               className="wapice-logo"
               src="images/wapice-logo.svg"
               alt="Wapice"
             />
           </a>
-          <a class="sign-up-link" href="https://ssl.eventilla.com/webdevandsausagesvol4">&gt; Sign up &amp; more info &lt;</a>
+          <a
+            class="sign-up-link"
+            href="https://ssl.eventilla.com/webdevandsausagesvol4"
+          >
+            &gt; Sign up & more info &lt;
+          </a>
         </span>
-        <h1 className="mailing-list-title">Join our mailing list <br />
-         to hear about upcoming events:</h1>
+        <h1 className="mailing-list-title">
+          Join our mailing list <br />
+          to hear about upcoming events:
+        </h1>
         <div className="mailing-list-input">
           <input
             autofocus
             type="text"
             value={state.value}
             oninput={e => setValue(selectValue(e))}
-            onkeyup={e => e.keyCode === 13 ? add() : ''}
+            onkeyup={e => (e.keyCode === 13 ? add() : '')}
             className={state.isValid ? 'valid' : 'invalid'}
           />
           <button onclick={add} disabled={state.isValid === false}>
-            +
+            {state.showSpinner ? <div className="spinner" /> : '+'}
           </button>
         </div>
         {state.showSuccess && <h1>Cool, now you are in the loop!</h1>}
-        {state.showError && <h1>Oh this is embarrassing, something went wrong. Try again.</h1>}
+        {state.showError &&
+          <h1>Oh this is embarrassing, something went wrong. Try again.</h1>}
         {socialMediaLinks()}
       </div>
       {logo()}
-    </div>
-  ),
+    </div>,
   actions: {
     setValue: (state, actions, value) => ({
       value,
-      isValid: isEmail(value)
+      isValid: isEmail(value),
     }),
     add: (state, actions) => {
       actions.hideErrorMessage()
+
       if (state.isValid) {
-        return axios.post(addMemberUrl, {email: state.value})
+        actions.toggleSpinner()
+
+        return axios
+          .post(addMemberUrl, {email: state.value})
           .then(res => {
-            if (res.status === 200) {
+            if (res.status === 200 || res.status === 201) {
               actions.showSuccessMessage()
             } else {
-             actions.showErrorMessage()
-           }
-        })
+              actions.showErrorMessage()
+            }
+            actions.toggleSpinner()
+          })
+          .catch(() => {
+            actions.showErrorMessage()
+            actions.toggleSpinner()
+          })
       }
     },
     showSuccessMessage: () => ({showSuccess: true}),
     showErrorMessage: () => ({errorMessage: true}),
-    hideErrorMessage: () => ({errorMessage: false})
-  }
+    hideErrorMessage: () => ({errorMessage: false}),
+    toggleSpinner: state => ({showSpinner: !state.showSpinner}),
+  },
 })
