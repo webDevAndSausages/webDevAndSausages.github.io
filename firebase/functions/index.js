@@ -138,7 +138,7 @@ exports.addMember = functions.https.onRequest((req, res) => {
     } else {
       // check if already saved
       DB.ref('members').once('value').then(snapshot => {
-        const members = snapshot.val()
+        const members = snapshot.val() || {}
         const matchingEmail = Object.keys(members).filter(member => {
           return members[member].email === email
         })
