@@ -105,13 +105,5 @@ app({
     showSuccessMessage: () => ({showSuccess: true}),
     showErrorMessage: () => ({errorMessage: true}),
     hideErrorMessage: () => ({errorMessage: false})
-  },
-  events: {
-    beforeAction: (state, actions) => {
-      console.log("before", state, actions)
-    },
-    afterAction: (state, actions) => {
-      console.log("before", state, actions)
-    }
   }
 })
