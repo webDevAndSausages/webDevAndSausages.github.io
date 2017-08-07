@@ -245,4 +245,11 @@ button:hover, button:disabled {
   to   { -webkit-transform: rotate(360deg) }
 }
 
+noscript {
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
 

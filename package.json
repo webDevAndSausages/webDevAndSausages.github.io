@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t babelify index.js -g uglifyify -p bundle-collapser/plugin | uglifyjs > bundle.js",
+    "build": "browserify -t babelify js/index.js -g uglifyify -p bundle-collapser/plugin | uglifyjs > bundle.js",
     "serve": "browser-sync start -s -f 'css/*.css' 'bundle.js' 'index.html'",
     "watch": "watchify -t babelify js/index.js -o bundle.js --debug --verbose",
     "start": "npm-run-all --parallel watch serve"

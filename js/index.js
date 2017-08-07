@@ -60,7 +60,7 @@ app({
           </a>
           <a
             class="sign-up-link"
-            href="https://ssl.eventilla.com/webdevandsausagesvol4"
+            href="https://ssl.eventilla.com/event/m4Pdo"
           >
             &gt; Sign up & more info &lt;
           </a>
