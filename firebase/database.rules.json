@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "members": {
+      ".write": "true",
+      ".read": "false"
+    },
+    "api_tokens": {
+      ".write": "true",
+      ".read": "true"
+    }
+  }
+}

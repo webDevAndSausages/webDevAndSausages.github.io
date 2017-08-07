@@ -9,10 +9,10 @@ body {
 }
 
 .top-logo {
-    top: -115px;
-    position: absolute;
-    left: 50%;
-    margin-left: -400px;
+  top: -115px;
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
 }
 
 .top-bg {
@@ -33,7 +33,7 @@ body {
 
 .bottom-bg {
   background-color: #52BDF6;
-  position:relative;
+  position: relative;
   top: 425px;
   left: 0;
   right: 0;
@@ -52,6 +52,7 @@ body {
   font-family: museo_sans500_italic;
   font-size: 34px;
   margin-top: 32px;
+  margin-bottom: 32px;
   display: inline-block;
   background-color: #0b7ebc;
   padding: 20px 20%;
@@ -168,6 +169,87 @@ body {
     transform: scale(0.8);
     left: -14px;
   }
+}
+
+input {
+  border: 1px solid #00caff;
+  border-radius: 2px;
+  background: #0b7ebc;
+  color: white;
+  width: 30%;
+  font-size: 0.7em;
+  font-weight: 400;
+  height: 52px;
+  padding: 10px 15px;
+  margin: 0;
+  outline: 0;
+}
+
+input:hover,
+input:focus {
+  background: #0b7ebc;
+  color: white;
+}
+
+input.valid {
+  background-color: #4B4B4B;
+  color: #00caff;
+}
+
+.mailing-list-input {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+}
+
+button {
+  background: #4b4b4b;
+  color: #00caff;
+  border-radius: 2px;
+  border: none;
+  height: 72px;
+  font-size: 1.3em;
+  font-weight: 400;
+  outline: none;
+  padding: 2px 20px 10px 20px;
+  margin: 1px 3px;
+  box-shadow: none;
+}
+
+button:hover, button:disabled {
+  background: #0b7ebc;
+  color: white;
+}
+
+.spinner {
+  position: relative;
+  margin: 5px 2px 0 3px;
+  border: 4px solid #fff;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  width: 20px;
+  height: 20px;
+  opacity: .8;
+  border-radius: 50%;
+  animation: loadingSpinner .7s infinite linear;
+  -webkit-animation: loadingSpinner .7s infinite linear;
+}
+
+@keyframes loadingSpinner {
+  from { transform: rotate(0deg)   }
+  to   { transform: rotate(360deg) }
+}
+
+@-webkit-keyframes loadingSpinner {
+  from { -webkit-transform: rotate(0deg)   }
+  to   { -webkit-transform: rotate(360deg) }
+}
+
+noscript {
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 
