@@ -2,15 +2,16 @@
   "name": "webdevandsausages",
   "version": "1.0.0",
   "description": "Homepage for Tampere-based meetup",
+  "author": "Leo Melin & Richard Van Camp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify -t babelify js/index.js -g uglifyify -p bundle-collapser/plugin | uglifyjs > bundle.js",
     "serve": "browser-sync start -s -f 'css/*.css' 'bundle.js' 'index.html'",
     "watch": "watchify -t babelify js/index.js -o bundle.js --debug --verbose",
-    "start": "npm-run-all --parallel watch serve"
+    "start": "npm-run-all --parallel watch serve",
+    "deploy": "cd firebase/functions && npm install && cd .. && firebase deploy"
   },
-  "author": "Leo Melin & Richard Van Camp",
   "license": "ISC",
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
