@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t babelify index.js -g uglifyify -p bundle-collapser/plugin | uglifyjs > bundle.js"
+    "build": "browserify -t babelify index.js -g uglifyify -p bundle-collapser/plugin | uglifyjs > bundle.js",
+    "serve": "browser-sync start -s -f 'css/*.css' 'bundle.js' 'index.html'",
+    "watch": "watchify -t babelify js/index.js -o bundle.js --debug --verbose",
+    "start": "npm-run-all --parallel watch serve"
   },
   "author": "Leo Melin & Richard Van Camp",
   "license": "ISC",
@@ -13,11 +16,13 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babelify": "^7.3.0",
+    "browser-sync": "^2.18.13",
     "browserify": "^14.4.0",
     "bundle-collapser": "^1.2.1",
-    "taskr": "^1.1.0",
+    "npm-run-all": "^4.0.2",
     "uglify-js": "^3.0.27",
-    "uglifyify": "^4.0.3"
+    "uglifyify": "^4.0.3",
+    "watchify": "^3.9.0"
   },
   "dependencies": {
     "axios": "^0.16.2",
