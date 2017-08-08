@@ -4,17 +4,15 @@ This is the [Web Dev And Sausages homepage](www.webdevandsausages.org) for a mee
 
 We welcome PRs.
 
-If you are a WD&Ss presenter updating information about your talk (thanks!) in the [Previous Events](https://www.webdevandsausages.org/previous-events) page,
-all you need to do is update `events.md`. If you have addition materials to add, please make a PR to our [archive](https://github.com/webDevAndSausages/archivedMeetupStuff) and
-link to it in `events.md`.
+If you are a WD&S presenter who is updating information about your talk in the [Previous Events](https://www.webdevandsausages.org/previous-events) page (thanks!), all you need to do is update `events.md`.
+If you have addition materials (pdfs, markdown, code), please make a PR to our [archive](https://github.com/webDevAndSausages/archivedMeetupStuff) and link to it from `events.md`.
 
-For other code contributions to the frontend, you can `npm start` should be enough and make sure you run `npm run build` before making your PR to
-minify the bundle. In terms of code style, running the code through [prettier](https://github.com/prettier/prettier) with
+For other code contributions to the frontend, `npm start` will get you started. Make sure you run `npm run build` before making your PR to minify the bundle. In terms of code style, running the code through [prettier](https://github.com/prettier/prettier) with
 `--no-semi --single-quote --bracket-spacing false --trailing-comma es5` flags, will do the job.
 
-If you want to fix or add something to the firebase functions and db, you will need to install the firebase-cli and create your own
-firebase project to test out your code. You will also need to run `firebase:config:set` if you want to check the slack integration
-or google spreadsheet function.
+If you want to fix or add something to the firebase functions and/or database, you will need to install the firebase-cli and create your own [firebase project](https://firebase.google.com/) to test out your code. You may need to add configuration to
+your firebase instance with `firebase:config:set` if you want to check the slack integration
+or google spreadsheet functionality.
 
 ```
 {
