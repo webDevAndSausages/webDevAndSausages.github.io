@@ -72,9 +72,9 @@ app({
       if (data.match.includes('previous-events')) {
         const dev = () => window.location.host.startsWith('localhost')
         const rootUrl = dev()
-          ? 'localhost:3000'
-          : 'www.webdevandsausages.org'
-        return axios(`http://${rootUrl}/events.md`, {responseType: 'text'})
+          ? '://localhost:3000'
+          : 's://www.webdevandsausages.org'
+        return axios(`http${rootUrl}/events.md`, {responseType: 'text'})
           .then(res => marked(res.data))
           .then(html => actions.setHtml(html))
           .catch(e => actions.setHtml('# An error occurring loading the markdown'))
