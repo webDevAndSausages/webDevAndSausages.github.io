@@ -252,4 +252,103 @@ noscript {
   font-weight: bold;
 }
 
+.previous-events {
+  display: flex;
+  margin-top: 35px;
+}
+
+.previous-events-link {
+  background-color: #4e4e4e;
+  padding: 10px 23px;
+  border-radius: 2px;
+  margin: auto;
+  color: white;
+  text-decoration: none;
+}
+
+.previous-events-link:hover {
+  background-color: #414141;
+  transition: all .2s ease-in-out;
+  transform: scale(1.05);
+}
+
+/*  Previous events page styles */
+
+.top-small {
+  background-image: url(../images/sausage-bg.png);
+  background-repeat: repeat;
+  background-color: #5A5A5A;
+  position: absolute;
+  top: -50px;
+  height: 280px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.btm-small {
+  background-color: #52BDF6;
+  position: relative;
+  top: 250px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  padding-bottom: 62px;
+  padding-top: 40px;
+}
+
+.previous-events-page-title {
+  font-size: 2.8em;
+  margin-top: 140px;
+  color:  white;
+}
+
+.previous-events-markdown {
+  display: flex;
+  background-color: #0b7ebc;
+  border-radius: 2px;
+  padding: 30px;
+  margin: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.previous-events-markdown h2,
+.previous-events-markdown h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.previous-events-markdown h2 {
+  color: white;
+  font-size: 2em;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.previous-events-markdown h3 {
+  color: white;
+  font-size: 1.5em;
+}
+
+.previous-events-markdown ul {
+  padding-left: 20px;
+}
+
+.previous-events-markdown ul > li {
+  font-size: 1.2em;
+  color: white;
+  list-style-type: disc;
+}
+
+.previous-events-markdown ul > li > a {
+  color: white
+}
+
+.previous-events-markdown ul > li > a:hover {
+  color: #52BDF6
+}
+
+
 
