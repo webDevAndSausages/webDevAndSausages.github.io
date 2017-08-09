@@ -354,5 +354,37 @@ noscript {
   margin: auto;
 }
 
+@media screen and (max-width: 800px) {
+  .previous-events-markdown {
+    padding: 10px;
+    margin: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .previous-events-page-title {
+    font-size: 2em;
+  }
+
+  .previous-events-markdown h2 {
+    color: white;
+    font-size: 1.2em;
+    padding-top: 20px;
+    font-weight: bold;
+  }
+
+  .previous-events-markdown h3 {
+    color: white;
+    font-size: 1em;
+  }
+
+  .previous-events-markdown ul > li {
+    font-size: .6em;
+    color: white;
+    list-style-type: disc;
+  }
+}
 
 

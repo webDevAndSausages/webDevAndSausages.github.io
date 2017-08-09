@@ -67,9 +67,10 @@ app({
     route: (s, actions, data) => {
       if (data.match.includes('previous-events')) {
         actions.toggleSpinner()
+
         const dev = () => window.location.host.startsWith('localhost')
         const rootUrl = dev()
-          ? '://localhost:3000'
+          ? `://${window.location.host}`
           : 's://www.webdevandsausages.org'
 
         return axios(`http${rootUrl}/events.md`, {responseType: 'text'})
