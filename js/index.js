@@ -15,24 +15,20 @@ app({
     showSuccess: false,
     showError: false,
     showSpinner: false,
-    html: ''
+    html: '',
   },
   view: [
-    [
-    '/',
-    (state, actions) =>
-      <Main
-        state={state}
-        add={actions.add}
-      />
-    ],
+    ['/', (state, actions) => <Main state={state} add={actions.add} />],
     [
       '/previous-events',
-      (state, actions) => <PreviousEvents html={state.html} a={actions} />
+      (state, actions) =>
+        <PreviousEvents
+          html={state.html}
+          loading={state.showSpinner}
+          a={actions}
+        />,
     ],
-    [
-      '*', (state, actions) => actions.router.go('/')
-    ]
+    ['*', (state, actions) => actions.router.go('/')],
   ],
   actions: {
     setValue: (state, actions, value) => ({
@@ -65,21 +61,29 @@ app({
     showSuccessMessage: () => ({showSuccess: true}),
     showErrorMessage: () => ({errorMessage: true}),
     hideErrorMessage: () => ({errorMessage: false}),
-    toggleSpinner: state => ({showSpinner: !state.showSpinner})
+    toggleSpinner: state => ({showSpinner: !state.showSpinner}),
   },
   events: {
     route: (s, actions, data) => {
       if (data.match.includes('previous-events')) {
+        actions.toggleSpinner()
         const dev = () => window.location.host.startsWith('localhost')
         const rootUrl = dev()
           ? '://localhost:3000'
           : 's://www.webdevandsausages.org'
+
         return axios(`http${rootUrl}/events.md`, {responseType: 'text'})
           .then(res => marked(res.data))
-          .then(html => actions.setHtml(html))
-          .catch(e => actions.setHtml('# An error occurring loading the markdown'))
+          .then(html => {
+            actions.toggleSpinner()
+            actions.setHtml(html)
+          })
+          .catch(e => {
+            actions.toggleSpinner()
+            actions.setHtml('<h2>An error occurring loading the markdown</h2>')
+          })
       }
-    }
+    },
   },
-  mixins: [Router]
+  mixins: [Router],
 })

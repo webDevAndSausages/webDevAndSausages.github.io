@@ -39,8 +39,8 @@ const Logo = () =>
 
 export const Main = ({state, add}) =>
   <div>
-    <div className="top-bg" />
-    <div className="bottom-bg">
+    <header className="top-bg" />
+    <main className="bottom-bg">
       <Title />
       <span className="next-meetup">
         <span className="date">17.8.2017</span>
@@ -66,9 +66,8 @@ export const Main = ({state, add}) =>
         Join our mailing list <br />
         to hear about upcoming events:
       </h1>
-      <div className="mailing-list-input">
+      <aside className="mailing-list-input">
         <input
-          autofocus
           type="text"
           value={state.value}
           oninput={e => setValue(selectValue(e))}
@@ -78,12 +77,12 @@ export const Main = ({state, add}) =>
         <button onclick={add} disabled={state.isValid === false}>
           {state.showSpinner ? <div className="spinner" /> : '+'}
         </button>
-      </div>
+      </aside>
       {state.showSuccess && <h1>Cool, now you are in the loop!</h1>}
       {state.showError &&
       <h1>Oh this is embarrassing, something went wrong. Try again.</h1>}
       <SocialMediaLinks />
       <PreviousEventsLink />
-    </div>
+    </main>
     <Logo />
   </div>

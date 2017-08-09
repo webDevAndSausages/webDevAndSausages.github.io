@@ -1,15 +1,20 @@
 import {h} from 'hyperapp'
 
-export const PreviousEvents = ({html, a}) =>
+export const PreviousEvents = ({html, loading, a}) =>
   <div>
-    <div className="top-small">
+    <header className="top-small">
       <div className="previous-events-title-container">
         <h1 className="previous-events-page-title">Previous Events</h1>
       </div>
-    </div>
-    <div className="btm-small">
-      <div className="previous-events-markdown">
-        <aside onupdate={e => (e.innerHTML = html)} />
-      </div>
-    </div>
+    </header>
+    <main className="btm-small">
+      <article className="previous-events-markdown">
+        {loading &&
+          <div className="markdown-loading">
+            <div className="spinner"/>
+          </div>
+        }
+        <article onupdate={e => (e.innerHTML = html)} />
+      </article>
+    </main>
   </div>
