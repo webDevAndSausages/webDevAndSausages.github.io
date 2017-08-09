@@ -1,6 +1,6 @@
 export const links = {
   facebook: 'https://www.facebook.com/webDevAndSausages',
-  twitter: 'social-media-icon twitter',
+  twitter: 'https://twitter.com/webdevnsausages',
   github: 'https://github.com/webDevAndSausages',
   youtube: 'https://www.youtube.com/user/Vancampit',
 }
