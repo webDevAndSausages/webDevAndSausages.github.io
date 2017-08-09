@@ -1,4 +1,4 @@
-This is the [Web Dev And Sausages homepage](www.webdevandsausages.org) for a meetup in Tampere, Finland for web developers and sausages lovers.
+This is the [Web Dev And Sausages homepage](https://www.webdevandsausages.org) for a meetup in Tampere, Finland for web developers and sausages lovers.
 
 ### Contributions
 
@@ -32,6 +32,7 @@ or google spreadsheet functionality.
   - link/page for event pictures
   - more detail in the Previous Events page
   - feedback/suggestions input
+  - https
+  - improve UI design
   - improvements to mobile
   - offline support / service worker
-  - improve UI design
