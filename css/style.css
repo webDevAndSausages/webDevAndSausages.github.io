@@ -306,6 +306,8 @@ noscript {
 
 .previous-events-markdown {
   display: flex;
+  justify-content: space-around;
+  text-align: center;
   background-color: #0b7ebc;
   border-radius: 2px;
   padding: 30px;
@@ -332,18 +334,24 @@ noscript {
   font-size: 1.5em;
 }
 
-.previous-events-markdown ul {
-  padding-left: 20px;
-}
-
 .previous-events-markdown ul > li {
   font-size: 1.2em;
   color: white;
-  list-style-type: disc;
 }
 
-.previous-events-markdown ul > li > a {
+.previous-events-markdown ul > li > a,
+.previous-events-markdown ul > li > p > a {
   color: white
+}
+
+.previous-events-markdown em {
+  font-size: 14px;
+  color: #00caff;
+}
+
+.previous-events-markdown ul > li > p {
+  display: flex;
+  justify-content: space-around;
 }
 
 .previous-events-markdown ul > li > a:hover {
@@ -381,10 +389,16 @@ noscript {
   }
 
   .previous-events-markdown ul > li {
-    font-size: .6em;
+    font-size: 12px;
     color: white;
     list-style-type: disc;
   }
+
+  .previous-events-markdown em {
+    font-size: 10px;
+    color: #00caff;
+  }
 }
+
 
 
