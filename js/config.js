@@ -7,3 +7,6 @@ export const links = {
 
 export const addMemberUrl =
   'https://us-central1-webdevandsausages.cloudfunctions.net/addMember'
+
+export const previousEventsUrl =
+  'https://rawgit.com/webDevAndSausages/archivedMeetupStuff/master/README.md'

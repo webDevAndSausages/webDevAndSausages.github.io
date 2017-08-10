@@ -3,7 +3,7 @@ import axios from 'axios'
 import marked from 'marked'
 import {Main} from './Main'
 import {PreviousEvents} from './PreviousEvents'
-import {addMemberUrl} from './config'
+import {addMemberUrl, previousEventsUrl} from './config'
 import {isEmail} from './helpers'
 import './startup'
 
@@ -68,12 +68,7 @@ app({
       if (data.match.includes('previous-events')) {
         actions.toggleSpinner()
 
-        const dev = () => window.location.host.startsWith('localhost')
-        const rootUrl = dev()
-          ? `://${window.location.host}`
-          : 's://www.webdevandsausages.org'
-
-        return axios(`http${rootUrl}/events.md`, {responseType: 'text'})
+        return axios(previousEventsUrl, {responseType: 'text'})
           .then(res => marked(res.data))
           .then(html => {
             actions.toggleSpinner()
