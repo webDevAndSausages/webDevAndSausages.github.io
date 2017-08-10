@@ -5,7 +5,7 @@ This is the [Web Dev And Sausages homepage](https://www.webdevandsausages.org) f
 We welcome PRs.
 
 If you are a WD&S presenter who is updating information about your talk in the [Previous Events](https://www.webdevandsausages.org/previous-events) page (thanks, by the way!),
-all you need to do is make a PR to update the [archive readme](https://github.com/webDevAndSausages/archivedMeetupStuff), which is directly rendered in previous-events page.
+all you need to do is make a PR to update the [archive readme](https://github.com/webDevAndSausages/archivedMeetupStuff), which is directly rendered in the previous-events page.
 Please also add your materials (pdfs, markdown, code), to its own directory in the archive, e.g. `archivedMeetupStuff/2017-05-11 @ Vincit Oy Office/My presentation - my name/`
 
 For other code contributions to the frontend, `npm start` will get you started. Make sure you run `npm run build` before making your PR to minify the bundle. In terms of code style, running the code through [prettier](https://github.com/prettier/prettier) with
