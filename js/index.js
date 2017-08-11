@@ -18,7 +18,13 @@ app({
     html: '',
   },
   view: [
-    ['/', (state, actions) => <Main state={state} add={actions.add} />],
+    ['/', (state, actions) =>
+      <Main
+        state={state}
+        add={actions.add}
+        setValue={actions.setValue}
+      />
+    ],
     [
       '/previous-events',
       (state, actions) =>

@@ -37,7 +37,7 @@ const Logo = () =>
     />
   </div>
 
-export const Main = ({state, add}) =>
+export const Main = ({state, add, setValue}) =>
   <div>
     <header className="top-bg" />
     <main className="bottom-bg">
