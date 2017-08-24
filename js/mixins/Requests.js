@@ -36,8 +36,6 @@ export default () => emit => ({
         if (data) {
           const html = await process(data)
 
-          //console.log(html)
-
           actions.toggleSpinner()
           actions.setHtml({html})
         } else {
