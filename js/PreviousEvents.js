@@ -1,8 +1,9 @@
 import {h} from 'hyperapp'
 
-export const PreviousEvents = ({html, loading, a}) =>
+export const PreviousEvents = ({loading, html}) =>
   <div>
     <header className="top-small">
+      <pre>{JSON.stringify(html, null, 4)}</pre>
       <div className="previous-events-title-container">
         <h1 className="previous-events-page-title">Previous Events</h1>
       </div>
@@ -14,7 +15,7 @@ export const PreviousEvents = ({html, loading, a}) =>
             <div className="spinner"/>
           </div>
         }
-        <article onupdate={e => (e.innerHTML = html)} />
+        {html && <article oncreate={e => (e.innerHTML = html)} />}
       </article>
     </main>
   </div>

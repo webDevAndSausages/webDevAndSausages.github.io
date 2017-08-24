@@ -1,5 +1,5 @@
 import {h} from 'hyperapp'
-import {links} from './config'
+import {links} from './consts'
 import {selectValue, firstUpper} from './helpers'
 
 const Title = () =>
@@ -20,9 +20,9 @@ const SocialMediaLinks = () =>
     {Object.keys(links).map((key, i) =>
       <a key={i} href={links[key]} target="_blank">
         <img
-          className={`social-media-icon ${key}`}
-          src={`images/${key}.svg`}
-          alt={firstUpper(key)}
+          className={`social-media-icon ${key.toLowerCase()}`}
+          src={`images/${key.toLowerCase()}.svg`}
+          alt={firstUpper(key.toLowerCase())}
         />
       </a>
     )}

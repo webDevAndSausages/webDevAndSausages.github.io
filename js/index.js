@@ -1,10 +1,10 @@
-import {h, app, Router} from 'hyperapp'
-import axios from 'axios'
+import 'babel-polyfill'
+import {h, app} from 'hyperapp'
+import {Router} from '@hyperapp/router'
 import marked from 'marked'
-import {Main} from './Main'
-import {PreviousEvents} from './PreviousEvents'
-import {addMemberUrl, previousEventsUrl} from './config'
-import {isEmail} from './helpers'
+import Requests from './mixins/Requests'
+import view from './view'
+import actions from './actions'
 import './startup'
 
 app({
@@ -17,75 +17,19 @@ app({
     showSpinner: false,
     html: '',
   },
-  view: [
-    ['/', (state, actions) =>
-      <Main
-        state={state}
-        add={actions.add}
-        setValue={actions.setValue}
-      />
-    ],
-    [
-      '/previous-events',
-      (state, actions) =>
-        <PreviousEvents
-          html={state.html}
-          loading={state.showSpinner}
-          a={actions}
-        />,
-    ],
-    ['*', (state, actions) => actions.router.go('/')],
-  ],
-  actions: {
-    setValue: (state, actions, value) => ({
-      value,
-      isValid: isEmail(value),
-    }),
-    add: (state, actions) => {
-      actions.hideErrorMessage()
-
-      if (state.isValid) {
-        actions.toggleSpinner()
-
-        return axios
-          .post(addMemberUrl, {email: state.value})
-          .then(res => {
-            if (res.status === 200 || res.status === 201) {
-              actions.showSuccessMessage()
-            } else {
-              actions.showErrorMessage()
-            }
-            actions.toggleSpinner()
-          })
-          .catch(() => {
-            actions.showErrorMessage()
-            actions.toggleSpinner()
-          })
-      }
-    },
-    setHtml: (state, actions, data) => ({html: data}),
-    showSuccessMessage: () => ({showSuccess: true}),
-    showErrorMessage: () => ({errorMessage: true}),
-    hideErrorMessage: () => ({errorMessage: false}),
-    toggleSpinner: state => ({showSpinner: !state.showSpinner}),
-  },
+  view,
+  actions,
   events: {
     route: (s, actions, data) => {
       if (data.match.includes('previous-events')) {
-        actions.toggleSpinner()
-
-        return axios(previousEventsUrl, {responseType: 'text'})
-          .then(res => marked(res.data))
-          .then(html => {
-            actions.toggleSpinner()
-            actions.setHtml(html)
-          })
-          .catch(e => {
-            actions.toggleSpinner()
-            actions.setHtml('<h2>An error occurring loading the markdown</h2>')
-          })
+        actions.request.get({resource: 'events', process: marked})
       }
     },
   },
-  mixins: [Router],
+  mixins: [
+    Router,
+    Requests()
+  ],
 })
+
+
