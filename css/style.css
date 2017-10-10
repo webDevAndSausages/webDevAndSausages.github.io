@@ -89,6 +89,16 @@ body {
   top: 25px;
 }
 
+.company-logo {
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  position: relative;
+  top: 18px;
+  background-color: white;
+  padding: 8px;
+}
+
 .sign-up-link,
 .sign-up-link:visited
 {

@@ -43,21 +43,21 @@ export const Main = ({state, add, setValue}) =>
     <main className="bottom-bg">
       <Title />
       <span className="next-meetup">
-        <span className="date">17.8.2017</span>
+        <span className="date">24.11.2017</span>
         <br />
-        Web Dev & Sausages vol.4
+        Web Dev & Sausages Vol. 5 - A Micro Christmas Hackathon
         <br />
         @{' '}
-        <a href="http://wapice.com/" target="_blank">
+        <a href="https://gofore.com" target="_blank">
           <img
-            className="wapice-logo"
-            src="images/wapice-logo.svg"
-            alt="Wapice"
+            className="company-logo"
+            src="images/gofore-logo.svg"
+            alt="Gofore"
           />
         </a>
         <a
           className="sign-up-link"
-          href="https://ssl.eventilla.com/event/m4Pdo"
+          href="http://www.eventilla.com/event/x5y9E"
         >
           &gt; Sign up & more info &lt;
         </a>
